@@ -1,5 +1,3 @@
-var numeral = require('numeral');
-
 hexo.extend.helper.register('wordcount', function (content) {
 	'use strict';
 	content = content.replace(/(<!--[^-]*-->)/g, '');//去注释
@@ -7,10 +5,7 @@ hexo.extend.helper.register('wordcount', function (content) {
 	content = content.replace(/\W\s/g, '');//符号后空白符
 	var cn = content.match(/[\u4E00-\u9FA5]/g) || [];
 	var en = content.match(/(\W*\w*\W)/g) || [];
-	return numeral(
-		cn.length + //中文
-		en.length  //英文
-	).format('0,0');
+	return cn.length + en.length;
 });
 
 hexo.extend.helper.register('totalcount', function (site) {
