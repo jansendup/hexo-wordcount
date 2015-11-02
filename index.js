@@ -27,8 +27,5 @@ hexo.extend.helper.register('totalcount', function (site) {
 		count += cn.length + //中文
 			en.length;  //英文
 	});
-	if(count < 1024){
-		return numeral(count).format('0,0');
-	}
-	return numeral(count).format('0,0.0a');
+	return count;
 });
